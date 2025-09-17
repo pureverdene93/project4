@@ -7,6 +7,7 @@ export const FormInput = (props) => {
     inputPlaceHolder,
     error,
     errorMessage,
+    inputBorderColor,
   } = props;
   return (
     <div className="firstNameDiv">
@@ -14,11 +15,15 @@ export const FormInput = (props) => {
         {inputTag} <span className="od">*</span>
       </p>
       <input
+      
         className="firstInput"
         placeholder={inputPlaceHolder}
         onChange={inputOnChange}
         name={inputName}
         value={inputValue}
+        // style={{
+        //   borderColor: { inputBorderColor } === false ? "red" : "blue",
+        // }}
       ></input>
       {error && <p className="errorfirst">{errorMessage}</p>}
     </div>
