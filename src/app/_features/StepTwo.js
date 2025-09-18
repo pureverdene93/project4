@@ -80,7 +80,7 @@ export const StepTwo = (props) => {
               inputPlaceHolder={"Enter your email."}
               error={errorState.email}
               errorMessage={"Please provide a valid email address."}
-              // inputBorderColor={inputHasSpecialChac(nameValues.firstName)}
+              // inputBorderColor={inputHasSpecialChac(nameValues.firstName)}s
             />
 
             <FormInput

@@ -4,9 +4,10 @@ import "./index.css";
 import { StepOne } from "./_features/StepOne";
 import { StepTwo } from "./_features/StepTwo";
 import { StepThree } from "./_features/StepThree";
+import { StepFour } from "./_features/StepFour";
 
 export default function Home() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -28,6 +29,7 @@ export default function Home() {
       {step === 3 && (
         <StepThree handlebackStep={backStep} handlenextStep={nextStep} />
       )}
+      {step === 4 && <StepFour />}
     </>
   );
 }
