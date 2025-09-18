@@ -92,12 +92,7 @@ export const StepThree = (props) => {
                 Profile image <span className="od">*</span>
               </p>
               <div className="display">
-                <input
-                  type="file"
-                  className="image"
-                  accept="image/*"
-                  onChange={imgUpl}
-                ></input>
+                <input type="file" className="image"></input>
               </div>
             </div>
           </div>
