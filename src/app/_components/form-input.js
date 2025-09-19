@@ -8,6 +8,7 @@ export const FormInput = (props) => {
     error,
     errorMessage,
     inputBorderColor,
+    type,
   } = props;
   return (
     <div className="firstNameDiv">
@@ -15,7 +16,7 @@ export const FormInput = (props) => {
         {inputTag} <span className="od">*</span>
       </p>
       <input
-      
+        type={type}
         className="firstInput"
         placeholder={inputPlaceHolder}
         onChange={inputOnChange}

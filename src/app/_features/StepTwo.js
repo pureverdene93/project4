@@ -80,6 +80,8 @@ export const StepTwo = (props) => {
               inputPlaceHolder={"Enter your email."}
               error={errorState.email}
               errorMessage={"Please provide a valid email address."}
+              type={"email"}
+
               // inputBorderColor={inputHasSpecialChac(nameValues.firstName)}s
             />
 
@@ -91,6 +93,7 @@ export const StepTwo = (props) => {
               inputPlaceHolder={"Enter your phone number"}
               error={errorState.phoneNumber}
               errorMessage={"Please enter a valid phone number."}
+              type={"text"}
               // inputBorderColor={inputHasSpecialChac(nameValues.lastName)}
             />
 
@@ -104,6 +107,7 @@ export const StepTwo = (props) => {
               errorMessage={
                 "Password must include letters, numbers and special characters."
               }
+              type={"password"}
               // inputBorderColor={inputHasSpecialChac(nameValues.userName)}
             />
             <FormInput
@@ -114,6 +118,7 @@ export const StepTwo = (props) => {
               inputPlaceHolder={"Confirm your password."}
               error={errorState.confirmPassword}
               errorMessage={"Passwords do not match. Please try again."}
+              type={"password"}
               // inputBorderColor={inputHasSpecialChac(nameValues.userName)}
             />
           </div>

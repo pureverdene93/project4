@@ -6,6 +6,8 @@ export const StepThree = (props) => {
 
   const [date, setDate] = useState("");
 
+  const [image, setImage] = useState(null);
+
   const [errorState, setErrorState] = useState(false);
 
   const dateInput = (event) => {
@@ -18,7 +20,6 @@ export const StepThree = (props) => {
     console.log(inputValue);
   };
 
-  const errors = {};
   // const myDateYear = date;
   const newDate = new Date();
   // const yearDiff = newDate.getFullYear() - myDateYear.getFullYear();
@@ -41,12 +42,30 @@ export const StepThree = (props) => {
 
   // console.log("my year", myBirthYear);
 
+  const errors = {};
+
   const checkInput = () => {
     if (date.length === 0 || yearDiff <= 18) {
       errors.date = "Error date";
     }
+    if (!image) {
+      errors.image = "error image";
+    }
     return errors;
   };
+  const imageChange = (event) => {
+    const imageDisplay = event.target.files[0];
+    if (imageDisplay) {
+      setImage(URL.createObjectURL(imageDisplay));
+    }
+    // console.log(setImage);
+  };
+  const imageRemove = () => {
+    setImage(null);
+  };
+
+  // console.log("it is image type", typeof image);
+  // console.log("it is date type", typeof date);
 
   const conBtn = () => {
     const errors = checkInput();
@@ -83,19 +102,45 @@ export const StepThree = (props) => {
                 onChange={dateInput}
               ></input>
               {errorState.date && (
-                <p className="errorfirst">Please select a date.</p>
+                <p className="errorfirst">
+                  Please select a date and you must be older than 18.
+                </p>
               )}
             </div>
 
-            <div className="imageUpload">
+            <label className="imageUpload" htmlFor="image-upload">
               <p className="firstName">
                 Profile image <span className="od">*</span>
               </p>
-              <div className="display">
-                <input type="file" className="image"></input>
-              </div>
-            </div>
+
+              {!image && (
+                <div className="display">
+                  <input
+                    id="image-upload"
+                    type="file"
+                    className="image"
+                    onChange={imageChange}
+                    style={{ display: "none" }}
+                  />
+                  <img src="camer.png" className="addImage" />
+                  <p className="addImageWord">Add image</p>
+                </div>
+              )}
+
+              {image && (
+                <div className="uploadedImageDisplay">
+                  <img src={image} className="uploadedImage" />
+                  <button onClick={imageRemove} className="imageRemoveBtn">
+                    X
+                  </button>
+                </div>
+              )}
+            </label>
+            {errorState.image && (
+              <p className="errorfirst">Image cannot be blank</p>
+            )}
           </div>
+
           <div className="backandnext">
             <button className="backBtn" onClick={handlebackStep}>
               {"<"} Back

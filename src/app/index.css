@@ -160,7 +160,6 @@
   height: 129px;
 }
 .image {
-  width: 100px;
   height: 20px;
   object-fit: cover;
   border: none;
@@ -174,4 +173,45 @@
   align-items: center;
   background-color: #f4f4f4;
   border-radius: 5px;
+  flex-direction: column;
+}
+.uploadedImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  z-index: -1;
+}
+.uploadedImageDisplay {
+  width: 416px;
+  height: 211px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+}
+.imageRemoveBtn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: white;
+  background-color: black;
+  border-radius: 100%;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.addImageWord {
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+.addImage {
+  width: 30px;
+  height: 30px;
 }
