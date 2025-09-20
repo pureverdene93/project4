@@ -10,15 +10,22 @@ const phoneNumber = (num) => {
 const password = (pass) => {
   return /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).+$/.test(pass);
 };
+const stepTwoLocal = (values) => {
+  localStorage.setItem("stepTwo", JSON.stringify(values));
+};
 export const StepTwo = (props) => {
   const { handlenextStep, handlebackStep } = props;
 
-  const [nameValues, setNameValues] = useState({
-    email: "",
-    phoneNumber: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const getItemFromLocalStepTwo = () => {
+    const values = localStorage.getItem("stepTwo");
+    if (values) {
+      return JSON.parse(values);
+    } else {
+      return { email: "", phoneNumber: "", password: "", confirmPassword: "" };
+    }
+  };
+
+  const [nameValues, setNameValues] = useState(getItemFromLocalStepTwo);
 
   const [errorState, setErrorState] = useState(false);
 
@@ -53,6 +60,7 @@ export const StepTwo = (props) => {
 
     if (Object.keys(errors).length === 0) {
       setErrorState({});
+      stepTwoLocal(nameValues);
       handlenextStep();
     } else {
       setErrorState(errors);

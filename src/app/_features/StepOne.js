@@ -6,14 +6,33 @@ const inputHasSpecialChac = (string) => {
   return /[\d\W]+/.test(string);
 };
 
+const stepOneLocal = (values) => {
+  localStorage.setItem("stepOne", JSON.stringify(values));
+};
+
 export const StepOne = (props) => {
   const { handlenextStep } = props;
 
-  const [nameValues, setNameValues] = useState({
-    firstName: "",
-    lastName: "",
-    userName: "",
-  });
+  const getItemFronLocalStepOne = () => {
+    const values = localStorage.getItem("stepOne");
+    if (values) {
+      return JSON.parse(values);
+    } else {
+      return {
+        firstName: "",
+        lastName: "",
+        userName: "",
+      };
+    }
+  };
+
+  const [nameValues, setNameValues] = useState(getItemFronLocalStepOne);
+
+  // const stringObject = JSON.stringify(nameValues);
+  // console.log(stringObject);
+
+  // const object = JSON.parse(stringObject);
+  // console.log(object);
 
   const [errorState, setErrorState] = useState(false);
 
@@ -53,6 +72,7 @@ export const StepOne = (props) => {
 
     if (Object.keys(errors).length === 0) {
       setErrorState({});
+      stepOneLocal(nameValues);
       handlenextStep();
     } else {
       setErrorState(errors);

@@ -1,48 +1,70 @@
 "use client";
 import { useState } from "react";
 
+const StepThreeLocalDate = (values) => {
+  localStorage.setItem("stepThreeDate", values);
+};
+
+const StepThreeLocalImage = (imageValues) => {
+  localStorage.setItem("stepThreeImage", JSON.stringify(imageValues));
+};
+
 export const StepThree = (props) => {
   const { handlenextStep, handlebackStep } = props;
 
-  const [date, setDate] = useState("");
+  const getItemFronLocalStepthreeDate = () => {
+    const values = localStorage.getItem("stepThreeDate");
+    if (values) {
+      return { values };
+    } else {
+      return {
+        date: "",
+      };
+    }
+  };
 
-  const [image, setImage] = useState(null);
+  const getItemFronLocalStepthreeImage = () => {
+    const imageValues = localStorage.getItem("stepThreeImage");
+    if (imageValues) {
+      return JSON.parse(imageValues);
+    } else return null;
+  };
+
+  const [date, setDate] = useState(getItemFronLocalStepthreeDate);
+
+  const [image, setImage] = useState(getItemFronLocalStepthreeImage);
+
+  // console.log("this is type of image", typeof image);
+  // console.log("this is type of date", typeof date);
+  // console.log("string object image", JSON.stringify(image));
+  // console.log(JSON.parse(image));
 
   const [errorState, setErrorState] = useState(false);
 
   const dateInput = (event) => {
-    // const inputName = event.target.name;
     const inputValue = event.target.value;
     setDate(inputValue);
-    // console.log("input name", inputName);
-    // console.log("input value", inputValue);
-    // console.log("date", date);
-    console.log(inputValue);
   };
 
-  // const myDateYear = date;
   const newDate = new Date();
-  // const yearDiff = newDate.getFullYear() - myDateYear.getFullYear();
-  console.log("date", date);
-
   const rightNowYear =
     newDate.getFullYear() + (newDate.getMonth() / 12 + newDate.getDay() / 365);
-  console.log("right now year", rightNowYear);
-
   const myBirthYear = new Date(date);
-  // console.log("my birth year", myBirthYear);
   const ageRightNow =
     myBirthYear.getFullYear(date) +
     (myBirthYear.getMonth(date) / 12 + myBirthYear.getDay(date) / 365);
-
   const yearDiff = rightNowYear - ageRightNow;
-  // console.log("this is my age", yearDiff);
-
-  // console.log("age", ageRightNow);
-
-  // console.log("my year", myBirthYear);
-
   const errors = {};
+
+  const imageChange = (event) => {
+    const imageDisplay = event.target.files[0];
+    if (imageDisplay) {
+      setImage(URL.createObjectURL(imageDisplay));
+    }
+  };
+  const imageRemove = () => {
+    setImage(null);
+  };
 
   const checkInput = () => {
     if (date.length === 0 || yearDiff <= 18) {
@@ -53,26 +75,15 @@ export const StepThree = (props) => {
     }
     return errors;
   };
-  const imageChange = (event) => {
-    const imageDisplay = event.target.files[0];
-    if (imageDisplay) {
-      setImage(URL.createObjectURL(imageDisplay));
-    }
-    // console.log(setImage);
-  };
-  const imageRemove = () => {
-    setImage(null);
-  };
-
-  // console.log("it is image type", typeof image);
-  // console.log("it is date type", typeof date);
 
   const conBtn = () => {
     const errors = checkInput();
 
     if (Object.keys(errors).length === 0) {
-      handlenextStep();
       setErrorState({});
+      StepThreeLocalDate(date);
+      StepThreeLocalImage(image);
+      handlenextStep();
     } else {
       setErrorState(errors);
     }
