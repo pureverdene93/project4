@@ -215,3 +215,78 @@
   width: 30px;
   height: 30px;
 }
+
+@media only screen and (max-width: 520px) {
+  .back1 {
+    width: 350px;
+    min-height: 479px;
+    gap: 10px;
+    padding-bottom: 22px;
+    padding-top: 22px;
+  }
+  .q1 {
+    width: 300px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  .emoji {
+    font-size: 20px;
+  }
+  .firstNameDiv {
+    width: 300px;
+  }
+  .firstName {
+    font-size: 12px;
+  }
+  .firstInput {
+    width: 300px;
+    height: 38px;
+    font-size: 14px;
+  }
+  .continueBtn {
+    width: 300px;
+    height: 38px;
+    font-size: 14px;
+  }
+  .word {
+    font-size: 13px;
+  }
+  .backBtn {
+    height: 38px;
+    width: 110px;
+    font-size: 14px;
+  }
+  .conBtn {
+    height: 38px;
+    width: 192px;
+    font-size: 14px;
+  }
+  .backandnext {
+    gap: 5px;
+  }
+  .uploadedImageDisplay {
+    width: 300px;
+    height: 173px;
+  }
+  .imageUpload {
+    width: 300px;
+    height: 173px;
+  }
+  .addImageWord {
+    font-size: 12px;
+  }
+  .addImage {
+    width: 24px;
+    height: 24px;
+  }
+  .q222 {
+    width: 350px;
+    height: 160px;
+  }
+  .con {
+    width: 300px;
+    height: 100px;
+  }
+}
