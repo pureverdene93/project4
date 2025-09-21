@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FormInput } from "../_components/form-input";
 const inputHasSpecialChac = (string) => {
-  return /^(?=.*\d)(?=.*[a-zA-Z])(?=.*@)(?=.*\.).+$/.test(string);
+  return /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(string);
 };
 const phoneNumber = (num) => {
   return /^\d{8}$/.test(num);

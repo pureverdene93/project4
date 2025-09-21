@@ -8,6 +8,14 @@ import { StepFour } from "./_features/StepFour";
 
 export default function Home() {
   const [step, setStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState();
+
+  const clearLocal = () => {
+    if (step === 4) {
+      return localStorage.clear;
+    }
+  };
+
   const nextStep = () => {
     setStep(step + 1);
   };
@@ -29,7 +37,7 @@ export default function Home() {
       {step === 3 && (
         <StepThree handlebackStep={backStep} handlenextStep={nextStep} />
       )}
-      {step === 4 && <StepFour />}
+      {step === 4 && <StepFour clearLocal={clearLocal} />}
     </>
   );
 }

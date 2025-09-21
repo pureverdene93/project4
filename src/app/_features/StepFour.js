@@ -1,4 +1,5 @@
-export const StepFour = () => {
+export const StepFour = (props) => {
+  const { clearLocal } = props;
   return (
     <div className="stepFour">
       <div className="q222">

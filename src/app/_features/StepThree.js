@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const StepThreeLocalDate = (values) => {
-  localStorage.setItem("stepThreeDate", values);
+  localStorage.setItem("stepThreeDate",  values);
 };
 
 const StepThreeLocalImage = (imageValues) => {

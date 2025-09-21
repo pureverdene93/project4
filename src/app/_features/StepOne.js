@@ -3,9 +3,9 @@ import { useState } from "react";
 import { FormInput } from "../_components/form-input";
 
 const inputHasSpecialChac = (string) => {
-  return /[\d\W]+/.test(string);
+  return /^[A-Za-z]+(?:[ -][A-Za-z]+)*$/.test(string);
 };
-
+// /[\d\W]+/
 const stepOneLocal = (values) => {
   localStorage.setItem("stepOne", JSON.stringify(values));
 };
@@ -45,21 +45,18 @@ export const StepOne = (props) => {
   const checkInput = () => {
     const errors = {};
     if (
-      inputHasSpecialChac(nameValues.firstName) ||
+      !inputHasSpecialChac(nameValues.firstName) ||
       nameValues.firstName.length <= 2
     ) {
       errors.firstName = errors.firstName = "Error first name";
     }
     if (
-      inputHasSpecialChac(nameValues.lastName) ||
+      !inputHasSpecialChac(nameValues.lastName) ||
       nameValues.lastName.length <= 2
     ) {
       errors.lastName = errors.lastName = "Error last name";
     }
-    if (
-      inputHasSpecialChac(nameValues.userName) ||
-      nameValues.userName.length <= 2
-    ) {
+    if (nameValues.userName.length <= 1) {
       errors.userName = errors.userName = "Error username";
     }
 
