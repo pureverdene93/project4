@@ -132,10 +132,10 @@ export const StepTwo = (props) => {
           </div>
           <div className="backandnext">
             <button className="backBtn" onClick={handlebackStep}>
-              {"<"} Back
+              &gt; Back
             </button>
             <button className="conBtn" onClick={conBtn}>
-              Continue 2/3 {">"}
+              Continue 2/3 &gt;
             </button>
           </div>
         </div>

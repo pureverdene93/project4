@@ -148,16 +148,16 @@ export const StepThree = (props) => {
               )}
             </label>
             {errorState.image && (
-              <p className="errorfirst">Image cannot be blank</p>
+              <p className="errorfirst">Image cannot be blank.</p>
             )}
           </div>
 
           <div className="backandnext">
             <button className="backBtn" onClick={handlebackStep}>
-              {"<"} Back
+              &gt; Back
             </button>
             <button className="conBtn" onClick={conBtn}>
-              Continue 3/3 {">"}
+              Continue 3/3 &gt;
             </button>
           </div>
         </div>

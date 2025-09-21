@@ -130,7 +130,7 @@ export const StepOne = (props) => {
           </div>
         </div>
         <button className="continueBtn" onClick={conBtn}>
-          Continue 1/3 {">"}
+          Continue 1/3 &gt;
         </button>
       </div>
     </div>
