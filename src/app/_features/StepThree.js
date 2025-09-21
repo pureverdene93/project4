@@ -142,7 +142,7 @@ export const StepThree = (props) => {
                 <div className="uploadedImageDisplay">
                   <img src={image} className="uploadedImage" />
                   <button onClick={imageRemove} className="imageRemoveBtn">
-                    X
+                    {"X"}
                   </button>
                 </div>
               )}
@@ -154,10 +154,10 @@ export const StepThree = (props) => {
 
           <div className="backandnext">
             <button className="backBtn" onClick={handlebackStep}>
-              {"<"} Back
+              &gt; Back
             </button>
             <button className="conBtn" onClick={conBtn}>
-              Continue 3/3 {">"}
+              Continue 3/3 &gt;
             </button>
           </div>
         </div>
