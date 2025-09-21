@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const StepThreeLocalDate = (values) => {
-  localStorage.setItem("stepThreeDate",  values);
+  localStorage.setItem("stepThreeDate", values);
 };
 
 const StepThreeLocalImage = (imageValues) => {
@@ -95,16 +95,16 @@ export const StepThree = (props) => {
         <div className="q">
           <div className="q1">
             <img src="/Main 1.svg" alt="pinelogo" className="logo" />
-            <p className="emoji">Join Us! 😎</p>
+            <p className="emoji">{"Join Us! 😎"}</p>
             <p className="word">
-              Please provide all current information accurately.
+              {"Please provide all current information accurately."}
             </p>
           </div>
 
           <div className="q2">
             <div className="firstNameDiv">
               <p className="firstName">
-                Date of Birth <span className="od">*</span>
+                {"Date of Birth"} <span className="od">{"*"}</span>
               </p>
               <input
                 name="dateOfBirth"
@@ -114,14 +114,14 @@ export const StepThree = (props) => {
               ></input>
               {errorState.date && (
                 <p className="errorfirst">
-                  Please select a date and you must be older than 18.
+                  {"Please select a date and you must be older than 18."}
                 </p>
               )}
             </div>
 
             <label className="imageUpload" htmlFor="image-upload">
               <p className="firstName">
-                Profile image <span className="od">*</span>
+                {"Profile image"} <span className="od">{"*"}</span>
               </p>
 
               {!image && (
@@ -134,7 +134,7 @@ export const StepThree = (props) => {
                     style={{ display: "none" }}
                   />
                   <img src="camer.png" className="addImage" />
-                  <p className="addImageWord">Add image</p>
+                  <p className="addImageWord">{"Add image"}</p>
                 </div>
               )}
 
@@ -148,16 +148,16 @@ export const StepThree = (props) => {
               )}
             </label>
             {errorState.image && (
-              <p className="errorfirst">Image cannot be blank.</p>
+              <p className="errorfirst">{"Image cannot be blank."}</p>
             )}
           </div>
 
           <div className="backandnext">
             <button className="backBtn" onClick={handlebackStep}>
-              &gt; Back
+              {"<"} Back
             </button>
             <button className="conBtn" onClick={conBtn}>
-              Continue 3/3 &gt;
+              Continue 3/3 {">"}
             </button>
           </div>
         </div>

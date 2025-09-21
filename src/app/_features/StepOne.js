@@ -82,9 +82,9 @@ export const StepOne = (props) => {
         <div className="q">
           <div className="q1">
             <img src="/Main 1.svg" alt="pinelogo" className="logo" />
-            <p className="emoji">Join Us! 😎</p>
+            <p className="emoji">{"Join Us! 😎"}</p>
             <p className="word">
-              Please provide all current information accurately.
+              {"Please provide all current information accurately."}
             </p>
           </div>
 
